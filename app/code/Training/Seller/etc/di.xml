@@ -28,4 +28,19 @@
             </argument>
         </arguments>
     </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="training_seller_seller_listing_data_source" xsi:type="string">Training\Seller\Model\ResourceModel\Seller\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Training\Seller\Model\ResourceModel\Seller\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">training_seller</argument>
+            <argument name="eventPrefix" xsi:type="string">training_seller_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">training_seller_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Training\Seller\Model\ResourceModel\Seller</argument>
+        </arguments>
+    </type>
 </config>
