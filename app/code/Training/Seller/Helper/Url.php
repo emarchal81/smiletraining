@@ -6,12 +6,13 @@
 namespace Training\Seller\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
+use Magento\Framework\View\Element\Block\ArgumentInterface;
 
 /**
  * Helper: Url
  *
  */
-class Url extends AbstractHelper
+class Url extends AbstractHelper implements ArgumentInterface
 {
     /**
      * get the url of the sellers
