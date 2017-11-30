@@ -12,12 +12,10 @@ namespace Training\Seller\Controller\Seller;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Exception\NotFoundException;
 use Magento\Framework\Controller\ResultFactory;
-use Magento\Framework\Controller\Result\Raw as ResultRaw;
+use Magento\Framework\View\Result\Page;
 
 class View extends AbstractAction
 {
-
-
     /**
      * Execute action based on request and return result
      *
@@ -38,17 +36,11 @@ class View extends AbstractAction
                 throw new NotFoundException(__('The seller does not exist'));
         }
 
-        $html = '
-        <h1>'.$seller->getName().'</h1>
-        <hr />
-        <p>#'.$seller->getIdentifier().'</p>
-        <hr />
-        <a href="/sellers.html">back to the list</a>
-        ';
+        $this->registry->register('current_seller',$seller);
+        /** @var \Magento\Framework\View\Result\Page $result */
+        $result = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
+        $result->getConfig()->getTitle()->set(__('Seller "%1"',$seller->getName()));
 
-        /** @var ResultRaw $result */
-        $result = $this->resultFactory->create(ResultFactory::TYPE_RAW);
-        $result->setContents($html);
         return $result;
     }
 }
