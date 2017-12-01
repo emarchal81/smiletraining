@@ -9,4 +9,4 @@ $client->connect();
 
 
 $client->get('rest/V1/products/24-WB04');
-$client->get('rest/V1/categories/3');
+//$client->get('rest/V1/categories/3');

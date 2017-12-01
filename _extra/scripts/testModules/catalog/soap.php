@@ -9,5 +9,5 @@ $client->addService('catalogProductRepositoryV1');
 $client->addService('catalogCategoryRepositoryV1');
 
 $client->catalogProductRepositoryV1Get(['sku' => '24-WB04']);
-$client->catalogCategoryRepositoryV1Get(['categoryId' => 3]);
+//$client->catalogCategoryRepositoryV1Get(['categoryId' => 3]);
 
