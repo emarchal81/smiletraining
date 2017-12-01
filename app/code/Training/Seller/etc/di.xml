@@ -54,4 +54,11 @@
         </argument>
     </arguments>
     </type>
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="training_seller_get" xsi:type="object">Training\Seller\Console\GetCommand</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
