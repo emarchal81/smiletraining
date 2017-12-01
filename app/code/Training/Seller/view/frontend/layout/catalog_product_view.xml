@@ -8,5 +8,12 @@
                 <argument name="border_color" xsi:type="string">blue</argument>
             </arguments>
         </referenceBlock>
+        <referenceBlock name="product.info.details">
+            <block class="Training\Seller\Block\Product\Sellers" name="sellers.tab" as="sellers" template="Training_Seller::product/sellers.phtml" group="detailed_info">
+                <arguments>
+                    <argument name="title" xsi:type="string" translate="true">Sellers</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
     </body>
 </page>

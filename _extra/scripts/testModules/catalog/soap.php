@@ -8,6 +8,6 @@ $client->setMagentoParams($params);
 $client->addService('catalogProductRepositoryV1');
 $client->addService('catalogCategoryRepositoryV1');
 
-$client->catalogProductRepositoryV1Get(['sku' => '24-UB02']);
+$client->catalogProductRepositoryV1Get(['sku' => '24-WB04']);
 $client->catalogCategoryRepositoryV1Get(['categoryId' => 3]);
 
