@@ -10,7 +10,8 @@ $client->addService('trainingSellerSellerRepositoryV1');
 $object=[
     'seller' => [
         'identifier' => 'test',
-        'name'       => 'my seller'
+        'name'       => 'my seller',
+        'description'=> 'ma description'
     ]
 ];
 $search = [

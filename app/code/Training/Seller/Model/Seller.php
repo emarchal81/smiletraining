@@ -86,6 +86,15 @@ class Seller extends AbstractModel implements SellerInterface, IdentityInterface
         return (string) $this->getData(self::FIELD_UPDATED_AT);
     }
 
+
+    /**
+     * @inheritdoc
+     */
+    public function getDescription()
+    {
+        return (string) $this->getData(self::FIELD_DESCRIPTION);
+    }
+
     /**
      * @inheritdoc
      */
@@ -126,6 +135,19 @@ class Seller extends AbstractModel implements SellerInterface, IdentityInterface
         return $this->setData(self::FIELD_UPDATED_AT, (string) $value);
     }
 
+
+    /**
+     * @inheritdoc
+     */
+    public function setDescription($value)
+    {
+        if ($value !== null) {
+            $value = (string) $value;
+        }
+
+        return $this->setData(self::FIELD_DESCRIPTION, $value);
+    }
+
     /**
      * Populate the object from array values
      * It is better to use setters instead of the generic setData method
@@ -138,7 +160,11 @@ class Seller extends AbstractModel implements SellerInterface, IdentityInterface
     {
         $this->setIdentifier($values['identifier']);
         $this->setName($values['name']);
+        if (array_key_exists('description',$values)) {
+            $this->setDescription($values['description']);
+        }
 
         return $this;
     }
+
 }

@@ -30,6 +30,7 @@ interface SellerInterface
     const FIELD_NAME = 'name';
     const FIELD_CREATED_AT = 'created_at';
     const FIELD_UPDATED_AT = 'updated_at';
+    const FIELD_DESCRIPTION = 'description';
     /**#@-*/
 
     /**
@@ -107,4 +108,19 @@ interface SellerInterface
      * @return SellerInterface
      */
     public function setUpdatedAt($updatedAt);
+
+    /**
+     * get description
+     *
+     * @return string|null
+     */
+    public function getDescription();
+
+    /**
+     * get description
+     *
+     * @param string|null $description
+     * @return SellerInterface
+     */
+    public function setDescription($description);
 }

@@ -10,7 +10,8 @@ $client->connect();
 $object=[
     'seller' => [
         'identifier' => 'test',
-        'name'       => 'my seller'
+        'name'       => 'my seller',
+        'description'=> 'test',
     ]
 ];
 $search = [
