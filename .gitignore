@@ -70,3 +70,4 @@ atlassian*
 
 # training
 /_extra/scripts/testModules/params.php
+/build/
