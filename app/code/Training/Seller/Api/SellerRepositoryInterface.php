@@ -9,6 +9,7 @@ namespace Training\Seller\Api;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Training\Seller\Api\Data\SellerInterface;
+
 /**
  * Interface SellerRepositoryInterface
  * @api

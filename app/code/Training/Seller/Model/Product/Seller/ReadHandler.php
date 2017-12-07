@@ -8,7 +8,6 @@
 
 namespace Training\Seller\Model\Product\Seller;
 
-
 use Magento\Framework\EntityManager\Operation\ExtensionInterface;
 use Magento\Catalog\Api\Data\ProductInterface;
 use Training\Seller\Helper\Data;
@@ -48,6 +47,5 @@ class ReadHandler implements ExtensionInterface
         $product->setExtensionAttributes($extensionAttributes);
 
         return $product;
-
     }
 }

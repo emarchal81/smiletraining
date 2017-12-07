@@ -15,7 +15,7 @@ use Magento\Framework\Phrase;
 use Magento\Framework\Model\AbstractModel;
 
 /**
- * Repositorty Management
+ * Repository Management
  *
  */
 class Management

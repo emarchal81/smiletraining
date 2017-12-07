@@ -14,7 +14,7 @@ use Magento\Framework\DataObject\IdentityInterface;
 class View extends AbstractBlock implements IdentityInterface
 {
     /**
-     * Used to set the cache infos
+     * Used to set the cache info
      *
      * @return void
      */

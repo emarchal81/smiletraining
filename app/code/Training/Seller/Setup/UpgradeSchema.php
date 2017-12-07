@@ -8,7 +8,7 @@
 
 namespace Training\Seller\Setup;
 
-
+use Magento\Framework\DB\Ddl\Table;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
 use Magento\Framework\Setup\UpgradeSchemaInterface;
@@ -43,10 +43,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
             $setup->getTable(SellerInterface::TABLE_NAME),
             SellerInterface::FIELD_DESCRIPTION,
             [
-                'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                'type' => Table::TYPE_TEXT,
                 'length' => null,
                 'nullable' => true,
-                'comment' => 'Desription'
+                'comment' => 'Description'
             ]
         );
         return $this;

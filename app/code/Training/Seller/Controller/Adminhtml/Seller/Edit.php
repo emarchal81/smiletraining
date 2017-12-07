@@ -21,6 +21,7 @@ class Edit extends AbstractAction
      * Execute the action
      *
      * @return ResultPage|ResultRedirect
+     * @throws \Magento\Framework\Exception\NotFoundException
      */
     public function execute()
     {

@@ -5,6 +5,8 @@
  */
 namespace Training\Helper\Test\Unit\Helper;
 
+use Magento\Framework\App\Helper\Context;
+use Magento\Framework\Url;
 use \PHPUnit\Framework\TestCase;
 use \Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 use \Training\Seller\Helper\Url as HelperUrl;
@@ -69,7 +71,7 @@ class UrlTest extends TestCase
     protected function getUrlHelper($askedUrl)
     {
         $urlBuilder = $this
-            ->getMockBuilder(\Magento\Framework\Url::class)
+            ->getMockBuilder(Url::class)
             ->disableOriginalConstructor()
             ->setMethods(['getDirectUrl'])
             ->getMock();
@@ -80,7 +82,7 @@ class UrlTest extends TestCase
             ->will($this->returnValue($askedUrl));
         
         $context = $this
-            ->getMockBuilder(\Magento\Framework\App\Helper\Context::class)
+            ->getMockBuilder(Context::class)
             ->disableOriginalConstructor()
             ->setMethods(['getUrlBuilder'])
             ->getMock();

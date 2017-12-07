@@ -15,20 +15,19 @@ use Training\Seller\Api\Data\SellerInterface;
 /**
  * Install Schema
  *
- * @author    Laurent MINGUET <lamin@smile.fr>
- * @copyright 2017 Smile
  */
 class InstallSchema implements InstallSchemaInterface
 {
     /**
      * Installs DB schema for a module
      *
-     * @param SchemaSetupInterface   $setup   Setup
+     * @param SchemaSetupInterface $setup Setup
      * @param ModuleContextInterface $context Context
      *
      * @return void
      * @SuppressWarnings("PMD.UnusedFormalParameter")
      * @SuppressWarnings("PMD.ExcessiveMethodLength")
+     * @throws \Zend_Db_Exception
      */
     public function install(
         SchemaSetupInterface $setup,
@@ -57,12 +56,12 @@ class InstallSchema implements InstallSchemaInterface
                 SellerInterface::FIELD_CREATED_AT,
                 Table::TYPE_TIMESTAMP,
                 null,
-                ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT]
+                ['nullable' => false, 'default' => Table::TIMESTAMP_INIT]
             )->addColumn(
                 SellerInterface::FIELD_UPDATED_AT,
                 Table::TYPE_TIMESTAMP,
                 null,
-                ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT_UPDATE]
+                ['nullable' => false, 'default' => Table::TIMESTAMP_INIT_UPDATE]
             )->addIndex(
                 $setup->getIdxName(
                     SellerInterface::TABLE_NAME,

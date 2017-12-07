@@ -44,9 +44,11 @@ class InstallData implements InstallDataInterface
      * @param ModuleDataSetupInterface $setup
      * @param ModuleContextInterface $context
      * @return void
+     * @throws \Magento\Framework\Exception\CouldNotSaveException
      */
     public function install(
-        ModuleDataSetupInterface $setup, ModuleContextInterface $context
+        ModuleDataSetupInterface $setup,
+        ModuleContextInterface $context
     ) {
         $mainSeller = $this->sellerModelFactory->create()
             ->setIdentifier('main')

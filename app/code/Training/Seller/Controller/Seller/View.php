@@ -8,11 +8,9 @@
 
 namespace Training\Seller\Controller\Seller;
 
-
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Exception\NotFoundException;
 use Magento\Framework\Controller\ResultFactory;
-use Magento\Framework\View\Result\Page;
 
 class View extends AbstractAction
 {
@@ -21,13 +19,13 @@ class View extends AbstractAction
      *
      * Note: Request will be added as operation argument in future
      *
-     * @return \Magento\Framework\Controller\ResultInterface|ResponseInterface
+     * @return \Magento\Framework\View\Result\Page
      * @throws \Magento\Framework\Exception\NotFoundException
      */
     public function execute()
     {
         $sellerIdentifier = trim($this->getRequest()->getParam("identifier"));
-        if (!$sellerIdentifier){
+        if (!$sellerIdentifier) {
             throw new NotFoundException(__('The identifier is missing'));
         }
         try {
@@ -36,10 +34,10 @@ class View extends AbstractAction
                 throw new NotFoundException(__('The seller does not exist'));
         }
 
-        $this->registry->register('current_seller',$seller);
+        $this->registry->register('current_seller', $seller);
         /** @var \Magento\Framework\View\Result\Page $result */
         $result = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-        $result->getConfig()->getTitle()->set(__('Seller "%1"',$seller->getName()));
+        $result->getConfig()->getTitle()->set(__('Seller "%1"', $seller->getName()));
 
         return $result;
     }

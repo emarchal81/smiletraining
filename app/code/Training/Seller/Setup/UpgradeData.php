@@ -8,17 +8,19 @@
 
 namespace Training\Seller\Setup;
 
-
 use Magento\Catalog\Model\Product;
+use Magento\Catalog\Model\ResourceModel\Eav\Attribute;
 use Magento\Customer\Model\Customer;
 use Magento\Customer\Setup\CustomerSetup;
 use Magento\Customer\Setup\CustomerSetupFactory;
 use Magento\Eav\Model\Config;
+use Magento\Eav\Model\Entity\Attribute\Backend\ArrayBackend;
 use Magento\Eav\Setup\EavSetup;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\UpgradeDataInterface;
 use Magento\Eav\Setup\EavSetupFactory;
+use Training\Seller\Option\Seller;
 
 class UpgradeData implements UpgradeDataInterface
 {
@@ -44,9 +46,9 @@ class UpgradeData implements UpgradeDataInterface
      */
     public function __construct(
         Config $eavConfig,
-        CustomerSetupFactory $customerSetupFactory, EavSetupFactory $eavSetupFactory
-    )
-    {
+        CustomerSetupFactory $customerSetupFactory,
+        EavSetupFactory $eavSetupFactory
+    ) {
         $this->customerSetupFactory = $customerSetupFactory;
         $this->eavConfig = $eavConfig;
         $this->eavSetupFactory = $eavSetupFactory;
@@ -58,6 +60,8 @@ class UpgradeData implements UpgradeDataInterface
      * @param ModuleDataSetupInterface $setup
      * @param ModuleContextInterface $context
      * @return void
+     * @throws \Exception
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function upgrade(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
@@ -68,11 +72,12 @@ class UpgradeData implements UpgradeDataInterface
         if (version_compare($context->getVersion(), '1.0.3', '<')) {
             $this->addProductAttribute($setup);
         }
-
     }
 
     /**
      * @param ModuleDataSetupInterface $setup
+     * @throws \Exception
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     protected function addCustomerAttribute(ModuleDataSetupInterface $setup)
     {
@@ -80,17 +85,17 @@ class UpgradeData implements UpgradeDataInterface
         $customerSetup = $this->customerSetupFactory->create(['setup' => $setup]);
 
         $customerSetup->addAttribute(
-             Customer::ENTITY,
-             'training_seller_id',
-             [
+            Customer::ENTITY,
+            'training_seller_id',
+            [
                  'label'  => 'Training Seller',
                  'type'   => 'int',
                  'input'  => 'select',
-                 'source' => \Training\Seller\Option\Seller::class,
+                 'source' => Seller::class,
                  'required'=>false,
                  'system'   => false,
                  'position' => 900,
-             ]
+            ]
         );
 
         $this->eavConfig->clear();
@@ -117,11 +122,11 @@ class UpgradeData implements UpgradeDataInterface
                 'label'                    => 'Training Sellers',
                 'type'                     => 'text',
                 'input'                    => 'multiselect',
-                'backend'                  => \Magento\Eav\Model\Entity\Attribute\Backend\ArrayBackend::class,
+                'backend'                  => ArrayBackend::class,
                 'frontend'                 => '',
                 'class'                    => '',
-                'source'                   => \Training\Seller\Option\Seller::class,
-                'global'                   => \Magento\Catalog\Model\ResourceModel\Eav\Attribute::SCOPE_GLOBAL,
+                'source'                   => Seller::class,
+                'global'                   => Attribute::SCOPE_GLOBAL,
                 'visible'                  => true,
                 'required'                 => false,
                 'user_defined'             => true,

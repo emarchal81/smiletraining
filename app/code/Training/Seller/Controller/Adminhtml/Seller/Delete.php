@@ -8,7 +8,6 @@ namespace Training\Seller\Controller\Adminhtml\Seller;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Controller\Result\Redirect as ResultRedirect;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Magento\Framework\Exception\NotFoundException;
 
 /**
  * Admin Action : seller/delete
@@ -22,7 +21,6 @@ class Delete extends AbstractAction
      * Execute the action
      *
      * @return ResultRedirect
-     * @throws NotFoundException
      */
     public function execute()
     {

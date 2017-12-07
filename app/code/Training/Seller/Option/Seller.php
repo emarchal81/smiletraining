@@ -8,7 +8,6 @@
 
 namespace Training\Seller\Option;
 
-
 use Magento\Eav\Model\Entity\Attribute\Source\AbstractSource;
 use Training\Seller\Api\Data\SellerInterface;
 use Training\Seller\Model\ResourceModel\Seller\CollectionFactory as SellerCollectionFactory;
@@ -42,12 +41,12 @@ class Seller extends AbstractSource
      */
     public function getAllOptions()
     {
-        if (is_null($this->options)){
+        if (is_null($this->options)) {
             /**
              * var SellerCollection $collection
              */
             $collection = $this->sellerCollectionFactory->create();
-            $collection->setOrder(SellerInterface::FIELD_NAME,$collection::SORT_ORDER_ASC);
+            $collection->setOrder(SellerInterface::FIELD_NAME, $collection::SORT_ORDER_ASC);
             $this->options = $collection->load()->toOptionArray();
         }
 

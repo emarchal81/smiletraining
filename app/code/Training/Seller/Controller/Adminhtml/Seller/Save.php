@@ -53,6 +53,7 @@ class Save extends AbstractAction
      * Execute the action
      *
      * @return ResultRedirect
+     * @throws \Magento\Framework\Exception\NotFoundException
      */
     public function execute()
     {

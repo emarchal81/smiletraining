@@ -8,14 +8,13 @@
 
 namespace Training\Seller\Block\Product;
 
-
 use Magento\Catalog\Model\Product;
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\Registry;
 use Magento\Framework\View\Element\Template\Context;
 use Training\Seller\Api\Data\SellerInterface;
 use Training\Seller\Block\Seller\AbstractBlock;
-use Training\Seller\Helper\Data;
+
 use Training\Seller\Helper\Url as UrlHelper;
 
 class Sellers extends AbstractBlock implements IdentityInterface
@@ -35,7 +34,6 @@ class Sellers extends AbstractBlock implements IdentityInterface
         if ($product) {
             $this->setData('cache_key', 'product_view_tab_sellers_' . $product->getId());
         }
-
     }
 
     /**

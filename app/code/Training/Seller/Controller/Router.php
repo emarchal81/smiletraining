@@ -8,12 +8,13 @@
 
 namespace Training\Seller\Controller;
 
-
 use Magento\Framework\App\ActionFactory;
 use Magento\Framework\App\ActionInterface;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\App\Action\Forward as ForwardAction;
-class Router implements \Magento\Framework\App\RouterInterface
+use Magento\Framework\App\RouterInterface;
+
+class Router implements RouterInterface
 {
     /**
      * @var ActionFactory

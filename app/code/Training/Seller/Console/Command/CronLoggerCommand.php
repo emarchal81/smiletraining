@@ -8,11 +8,10 @@
 
 namespace Training\Seller\Console\Command;
 
-
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputOption;
+
 use Training\Seller\Cron\Logger;
 
 class CronLoggerCommand extends Command
@@ -51,5 +50,4 @@ class CronLoggerCommand extends Command
         $this->cronLogger->execute();
         $output->writeln('Cron End');
     }
-
 }

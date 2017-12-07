@@ -5,6 +5,7 @@
  */
 namespace Training\Seller\Model\ResourceModel;
 
+use Magento\Framework\DB\Adapter\AdapterInterface;
 use Magento\Framework\DB\Select;
 use Magento\Framework\EntityManager\EntityManager;
 use Magento\Framework\EntityManager\MetadataPool;
@@ -67,7 +68,8 @@ class Seller extends AbstractDb
     /**
      * Get connection
      *
-     * @return \Magento\Framework\DB\Adapter\AdapterInterface|false
+     * @return AdapterInterface|false
+     * @throws \Exception
      */
     public function getConnection()
     {
@@ -128,10 +130,11 @@ class Seller extends AbstractDb
     /**
      * get the id of an object
      *
-     * @param mixed         $value
-     * @param null          $field
+     * @param mixed $value
+     * @param null $field
      *
      * @return bool|int|string
+     * @throws \Exception
      */
     protected function getObjectId($value, $field = null)
     {

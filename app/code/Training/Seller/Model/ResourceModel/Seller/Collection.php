@@ -9,6 +9,7 @@ namespace Training\Seller\Model\ResourceModel\Seller;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 use Training\Seller\Api\Data\SellerInterface;
+use Training\Seller\Model\ResourceModel\Seller;
 
 class Collection extends AbstractCollection
 {
@@ -21,7 +22,7 @@ class Collection extends AbstractCollection
     {
         $this->_init(
             \Training\Seller\Model\Seller::class,
-            \Training\Seller\Model\ResourceModel\Seller::class
+            Seller::class
         );
     }
 

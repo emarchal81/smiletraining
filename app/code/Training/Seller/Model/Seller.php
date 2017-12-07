@@ -32,7 +32,7 @@ class Seller extends AbstractModel implements SellerInterface, IdentityInterface
     protected function _construct()
     {
         $this->_init(
-            \Training\Seller\Model\ResourceModel\Seller::class
+            ResourceModel\Seller::class
         );
     }
 
@@ -160,11 +160,10 @@ class Seller extends AbstractModel implements SellerInterface, IdentityInterface
     {
         $this->setIdentifier($values['identifier']);
         $this->setName($values['name']);
-        if (array_key_exists('description',$values)) {
+        if (array_key_exists('description', $values)) {
             $this->setDescription($values['description']);
         }
 
         return $this;
     }
-
 }
